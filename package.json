@@ -1,6 +1,6 @@
 {
   "name": "view-store-data",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "type": "module",
   "main": "dist/index.bundle.js",
