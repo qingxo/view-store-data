@@ -1,2 +1,2 @@
-import DragItem from "./DragItem.jsx";
+import DragItem from "./DragItem";
 export default DragItem;

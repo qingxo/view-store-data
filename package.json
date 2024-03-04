@@ -1,9 +1,8 @@
 {
   "name": "view-store-data",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
-  "type": "module",
-  "main": "dist/index.bundle.js",
+  "module": "dist/index.bundle.js",
   "dependencies": {
     "@ant-design/icons": "^5.3.1",
     "@babel/core": "^7.24.0",
