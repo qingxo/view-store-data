@@ -15,6 +15,7 @@ module.exports = {
         filename: 'bundle.js',   // 输出文件名
         publicPath: '/',
         chunkFilename: 'js/[name].[hash:8].bundle.js',
+        chunkFormat: 'commonjs',
         filename: '[name].bundle.js',
 
     },
