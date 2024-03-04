@@ -15,7 +15,7 @@ module.exports = {
         filename: 'bundle.js',   // 输出文件名
         publicPath: '/',
         chunkFilename: 'js/[name].[hash:8].bundle.js',
-        filename: '[name].bundle.[hash:8].js',
+        filename: '[name].bundle.js',
 
     },
     module: {
