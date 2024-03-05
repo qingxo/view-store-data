@@ -18,6 +18,20 @@ module.exports = {
         libraryTarget: 'umd', // 使用通用模块定义
         umdNamedDefine: true, // 使用命名的AMD模块定义
     },
+    externals: {
+        react: {
+            commonjs: 'react',
+            commonjs2: 'react',
+            amd: 'react',
+            root: 'React',
+        },
+        'react-dom': {
+            commonjs: 'react-dom',
+            commonjs2: 'react-dom',
+            amd: 'react-dom',
+            root: 'ReactDOM',
+        },
+    },
     module: {
         rules: [
             {
