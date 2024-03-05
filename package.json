@@ -1,8 +1,18 @@
 {
   "name": "view-store-data",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "private": false,
   "main": "dist/index.bundle.js",
+  "keywords": [
+    "session",
+    "cookie"
+  ],
+  "author": "xiao_M",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qingxo/view-store-data.git"
+  },
   "dependencies": {
     "@ant-design/icons": "^5.3.1",
     "@babel/core": "^7.24.0",
