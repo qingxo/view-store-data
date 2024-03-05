@@ -15,4 +15,4 @@ import DragItem from './components/dragItem';
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-export default DragItem;
+module.exports = DragItem;
