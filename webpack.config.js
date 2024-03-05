@@ -15,7 +15,6 @@ module.exports = {
         publicPath: '/',
         chunkFilename: 'js/[name].[hash:8].bundle.js',
         filename: '[name].bundle.js',// 输出文件名
-        library: 'DragItem', // 你的插件暴露的全局变量名
         libraryTarget: 'umd', // 使用通用模块定义
         umdNamedDefine: true, // 使用命名的AMD模块定义
     },
