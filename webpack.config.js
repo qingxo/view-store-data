@@ -12,11 +12,10 @@ module.exports = {
     },   // 入口文件
     output: {
         path: path.resolve(__dirname, 'dist'),   // 输出目录
-        filename: 'bundle.js',   // 输出文件名
         publicPath: '/',
         chunkFilename: 'js/[name].[hash:8].bundle.js',
         chunkFormat: 'commonjs',
-        filename: '[name].bundle.js',
+        filename: '[name].bundle.js',// 输出文件名
 
     },
     module: {
