@@ -7,11 +7,12 @@
     "session",
     "cookie"
   ],
-  "author": "xiao_M",
+  "author": "qingxo",
+  "description": "Session see easyily",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/qingxo/view-store-data.git"
+    "url": "git+https://github.com/qingxo/view-store-data.git"
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.1",
