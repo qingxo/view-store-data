@@ -2,20 +2,9 @@ import React, { useState } from "react";
 import { Button } from 'antd';
 import Draggable from 'react-draggable';
 import { MenuUnfoldOutlined } from '@ant-design/icons';
-import JSONViewer from 'react-json-viewer';
+import { JsonView, allExpanded, darkStyles, defaultStyles } from 'react-json-view-lite';
+import 'react-json-view-lite/dist/index.css';
 import './index.less';
-const jsons = {
-    "abc": {
-        a: 'xxxx',
-        b: 'bbbb',
-        d: 'dddd'
-    },
-    "xyz": '123',
-    "adbc": [
-        'abc', 'fff', '1234', 4243
-    ],
-    "asdf": 4
-}
 export default function DragItem() {
     const [isShow, setIsShow] = useState(false);
     const eventLogger = (e, data) => {
@@ -83,24 +72,29 @@ export default function DragItem() {
             onStart={handleStart}
             onDrag={handleDrag}
             onStop={handleStop}>
-            <div className="zoom">
+            <div className='zoom'>
                 <div className="handle">
                     <Button onDoubleClick={showDetail} type="primary"><MenuUnfoldOutlined /></Button>
-
                     <div style={{ display: isShow ? 'block' : 'none' }} className="infos">
-                        <div className="title">LocalStorage信息</div>
-                        <JSONViewer
-                            json={getLocalhostInfo()}
-                        />
-                        <div className="title">Session信息</div>
-                        <JSONViewer
-                            json={getSessionInfo()}
-                        />
+                        <div className="zoom-local">
+                            <div className="title">localStorage</div>
+                            <JsonView data={getLocalhostInfo()} shouldExpandNode={allExpanded} style={defaultStyles} />
+                        </div>
+                        <div className="zoom-session">
+                            <div className="title">sessionStorage信息</div>
+                            <JsonView
+                                data={getSessionInfo()}
+                            />
+                        </div>
 
-                        <div className="title">Cookie信息</div>
-                        <JSONViewer
-                            json={getCookieInfo()}
-                        />
+                        <div className="zoom-cookie">
+                            <div className="title">Cookie信息</div>
+                            <JsonView
+                                data={getCookieInfo()}
+                            />
+                        </div>
+
+
                     </div>
                 </div>
 
