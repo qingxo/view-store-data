@@ -6,6 +6,7 @@
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
+        max-width: 40%;
 
         &>div {
             display: flex;
@@ -15,26 +16,44 @@
         &>button {
             width: 50px;
         }
-    }
 
-    .infos {
-        display: flex;
-        justify-content: flex-start;
-
-        &>div {
+        .infos {
             display: flex;
-        }
+            justify-content: flex-start;
+            flex-direction: column;
+            background-color: rgba(176, 172, 167, 0.695);
+            padding: 4px;
 
-        .title {
-            font-size: 16px;
-            margin: 16px 0 6px 0;
-            font-weight: bold;
-        }
+            &>div {
+                display: block;
+            }
 
-        .zoom-local {
-            background-color: aquamarine;
+            .title {
+                font-size: 16px;
+                padding: 10px 0;
+                font-weight: bold;
+            }
+
+            .zoom-local {
+                background-color: rgba(162, 247, 219, 0.4);
+                padding: 4px 4px;
+                margin-bottom: 10px;
+            }
+
+            .zoom-session {
+                background-color: rgba(22, 181, 5, 0.4);
+                padding: 4px 4px;
+                margin-bottom: 10px;
+            }
+
+            .zoom-cookie {
+                background-color: rgba(85, 90, 238, 0.4);
+                padding: 4px 4px;
+            }
         }
     }
+
+
 
 
 }

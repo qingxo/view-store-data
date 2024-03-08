@@ -75,20 +75,20 @@ export default function DragItem() {
             <div className='zoom'>
                 <div className="handle">
                     <Button onDoubleClick={showDetail} type="primary"><MenuUnfoldOutlined /></Button>
-                    <div style={{ display: isShow ? 'block' : 'none' }} className="infos">
+                    <div style={{ display: isShow ? 'flex' : 'none' }} className="infos">
                         <div className="zoom-local">
                             <div className="title">localStorage</div>
                             <JsonView data={getLocalhostInfo()} shouldExpandNode={allExpanded} style={defaultStyles} />
                         </div>
                         <div className="zoom-session">
-                            <div className="title">sessionStorage信息</div>
+                            <div className="title">sessionStorage</div>
                             <JsonView
                                 data={getSessionInfo()}
                             />
                         </div>
 
                         <div className="zoom-cookie">
-                            <div className="title">Cookie信息</div>
+                            <div className="title">cookie</div>
                             <JsonView
                                 data={getCookieInfo()}
                             />
