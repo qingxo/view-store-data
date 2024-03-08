@@ -4,52 +4,33 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 const path = require('path');
-const rootPath = path.resolve(__dirname, './');
+const rootPath = path.resolve(__dirname, '../');
 
-module.exports = {
+const config = {
     entry: {
         index: path.resolve(rootPath, 'src/index.js'),
     },   // 入口文件
     output: {
-        path: path.resolve(__dirname, 'dist'),   // 输出目录
+        path: path.resolve(rootPath, 'dist'),   // 输出目录
         publicPath: '/',
         chunkFilename: 'js/[name].[hash:8].bundle.js',
         filename: '[name].bundle.js',// 输出文件名
         libraryTarget: 'umd', // 使用通用模块定义
         umdNamedDefine: true, // 使用命名的AMD模块定义
     },
-    externals: {
-        react: {
-            commonjs: 'react',
-            commonjs2: 'react',
-            amd: 'react',
-            root: 'React',
-        },
-        'react-dom': {
-            commonjs: 'react-dom',
-            commonjs2: 'react-dom',
-            amd: 'react-dom',
-            root: 'ReactDOM',
-        },
-    },
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react']
-                    }
-                },
-                resolve: {
-                    extensions: ['.js', '.jsx'],
-                },
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [
+                    'style-loader',  // 将CSS样式插入到页面中
+                    'css-loader'     // 解析CSS文件
+                ]
             },
             {
                 test: /\.css$/,
-                exclude: /node_modules/,
+                include: [path.resolve(rootPath, 'node_modules/react-json-view-lite')],
                 use: [
                     'style-loader',  // 将CSS样式插入到页面中
                     'css-loader'     // 解析CSS文件
@@ -63,6 +44,19 @@ module.exports = {
                     'css-loader',    // 解析CSS文件
                     'less-loader'    // 转译Less文件为CSS
                 ]
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                },
+                resolve: {
+                    extensions: ['.js', '.jsx'],
+                },
             }
         ]
     },
@@ -75,30 +69,8 @@ module.exports = {
             filename: 'index.html', // 输出的 HTML 文件名
             chunks: ['index'], // JS 文件的名称，需要与 entry 中的 key 对应
         }),
-        // new CopyWebpackPlugin({
-        //     patterns: [
-        //         {
-        //             from: path.resolve(rootPath, 'public'), to: path.resolve(rootPath, 'dist/public'),
-        //             globOptions: {
-        //                 ignore: ['*.ejs'],
-        //             },
-        //         },
-        //     ],
-        // }),
         new webpack.HotModuleReplacementPlugin(),
-
     ],
-    devServer: {
-        client: {
-            logging: 'info',
-            overlay: true,
-            progress: true,
-        },
-        port: 3000,   // 端口号
-        compress: false,  //启用压缩  
-        historyApiFallback: true,  // 支持单页面应用路由
-        open: true,                                 // 自动打开浏览器
-        allowedHosts: 'all',
-
-    }
 };
+
+module.exports = config;
