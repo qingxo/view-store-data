@@ -33,7 +33,14 @@ export default function DragItem() {
         let target = {};
         for (let key in sessionStorage) {
             if (key !== 'length' && !(typeof sessionStorage[key] === 'function')) {
-                target[key] = sessionStorage[key];
+                //target[key] = sessionStorage[key];
+                const content = JSON.parse(sessionStorage[key]);
+                if (typeof content === 'object') {
+                    target[key] = content;
+                } else {
+                    target[key] = sessionStorage[key];
+                }
+
             }
         }
         return target;

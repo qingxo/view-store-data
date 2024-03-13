@@ -1,6 +1,6 @@
 {
   "name": "view-store-data",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "main": "dist/index.bundle.js",
   "keywords": [
@@ -12,7 +12,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qingxo/view-store-data.git"
+    "url": "https://github.com/qingxo/view-store-data.git"
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.1",
