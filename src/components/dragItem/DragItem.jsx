@@ -5,7 +5,7 @@ import { MenuUnfoldOutlined } from '@ant-design/icons';
 import { JsonView, allExpanded, darkStyles, defaultStyles } from 'react-json-view-lite';
 import 'react-json-view-lite/dist/index.css';
 import './index.less';
-export default function DragItem() {
+export default function DragItem({ info = {} }) {
     const [isShow, setIsShow] = useState(false);
     const eventLogger = (e, data) => {
         console.log('Event: ', e);
@@ -68,6 +68,14 @@ export default function DragItem() {
         }
         return target;
     }
+
+    const getInfo = () => {
+        let target = {};
+        for (let key in info) {
+            target[key] = info[key];
+        }
+        return target;
+    }
     return (
         <Draggable
             axis="both"
@@ -83,6 +91,10 @@ export default function DragItem() {
                 <div className="handle">
                     <Button onDoubleClick={showDetail} type="primary"><MenuUnfoldOutlined /></Button>
                     <div style={{ display: isShow ? 'flex' : 'none' }} className="infos">
+                        <div className="zoom-list">
+                            <div className="title">自定义信息</div>
+                            <JsonView data={getInfo()} shouldExpandNode={allExpanded} style={defaultStyles} />
+                        </div>
                         <div className="zoom-local">
                             <div className="title">localStorage</div>
                             <JsonView data={getLocalhostInfo()} shouldExpandNode={allExpanded} style={defaultStyles} />
