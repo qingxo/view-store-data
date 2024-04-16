@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button } from 'antd';
+import { Button, Tooltip } from 'antd';
 import Draggable from 'react-draggable';
-import { MenuUnfoldOutlined } from '@ant-design/icons';
+import { OrderedListOutlined } from '@ant-design/icons';
 import { JsonView, allExpanded, darkStyles, defaultStyles } from 'react-json-view-lite';
 import 'react-json-view-lite/dist/index.css';
 import './index.less';
@@ -89,7 +89,11 @@ export default function DragItem({ info = {} }) {
             onStop={handleStop}>
             <div className='zoom'>
                 <div className="handle">
-                    <Button onDoubleClick={showDetail} type="primary"><MenuUnfoldOutlined /></Button>
+                    <Button onDoubleClick={showDetail} type="primary">
+                        <Tooltip title="双击可展示信息">
+                            <OrderedListOutlined />
+                        </Tooltip>
+                    </Button>
                     <div style={{ display: isShow ? 'flex' : 'none' }} className="infos">
                         <div className="zoom-list">
                             <div className="title">自定义信息</div>
