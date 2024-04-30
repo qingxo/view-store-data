@@ -1,12 +1,11 @@
 .zoom {
     display: block;
-    position: relative;
+    position: absolute;
 
     .handle {
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
-        max-width: 40%;
 
         &>div {
             display: flex;
@@ -23,6 +22,7 @@
             flex-direction: column;
             background-color: rgba(176, 172, 167, 0.695);
             padding: 4px;
+            min-width: 500px;
 
             &>div {
                 display: block;
@@ -32,6 +32,7 @@
                 font-size: 16px;
                 padding: 10px 0;
                 font-weight: bold;
+                cursor: pointer;
             }
 
             .zoom-list {

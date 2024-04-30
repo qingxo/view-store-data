@@ -4,24 +4,30 @@ import Draggable from 'react-draggable';
 import { OrderedListOutlined } from '@ant-design/icons';
 import { JsonView, allExpanded, darkStyles, defaultStyles } from 'react-json-view-lite';
 import 'react-json-view-lite/dist/index.css';
-import './index.less';
+import './index.css';
 export default function DragItem({ info = {} }) {
+    const [isExpanded, setIsExpanded] = useState({
+        selfFlag: () => true,
+        storageFlag: () => false,
+        sessionFlag: () => true,
+        cookieFlag: () => true,
+    })
     const [isShow, setIsShow] = useState(false);
     const eventLogger = (e, data) => {
-        console.log('Event: ', e);
-        console.log('Data: ', data);
+        // console.log('Event: ', e);
+        // console.log('Data: ', data);
     };
 
     const handleStart = (e, data) => {
-        console.log("the handleStart :", e, data);
+        // console.log("the handleStart :", e, data);
     }
 
     const handleDrag = (e, data) => {
-        console.log("the handleDrag :", e, data);
+        // console.log("the handleDrag :", e, data);
 
     }
     const handleStop = (e, data) => {
-        console.log("the handleStop :", e, data);
+        // console.log("the handleStop :", e, data);
 
     }
 
@@ -76,6 +82,12 @@ export default function DragItem({ info = {} }) {
         }
         return target;
     }
+
+    const changeFlag = (param) => {
+        var obj = { ...isExpanded, [param]: () => !(isExpanded[param]()) }
+        setIsExpanded(obj);
+    }
+
     return (
         <Draggable
             axis="both"
@@ -96,24 +108,26 @@ export default function DragItem({ info = {} }) {
                     </Button>
                     <div style={{ display: isShow ? 'flex' : 'none' }} className="infos">
                         <div className="zoom-list">
-                            <div className="title">自定义信息</div>
-                            <JsonView data={getInfo()} shouldExpandNode={allExpanded} style={defaultStyles} />
+                            <div className="title" onClick={() => { changeFlag('selfFlag') }}>自定义信息</div>
+                            <JsonView data={getInfo()} shouldExpandNode={isExpanded.selfFlag} style={defaultStyles} />
                         </div>
                         <div className="zoom-local">
-                            <div className="title">localStorage</div>
-                            <JsonView data={getLocalhostInfo()} shouldExpandNode={allExpanded} style={defaultStyles} />
+                            <div className="title" onClick={() => { changeFlag('storageFlag') }}>localStorage</div>
+                            <JsonView data={getLocalhostInfo()} shouldExpandNode={isExpanded.storageFlag} style={defaultStyles} />
                         </div>
                         <div className="zoom-session">
-                            <div className="title">sessionStorage</div>
+                            <div className="title" onClick={() => { changeFlag('sessionFlag') }}>sessionStorage</div>
                             <JsonView
                                 data={getSessionInfo()}
+                                shouldExpandNode={isExpanded.sessionFlag}
                             />
                         </div>
 
                         <div className="zoom-cookie">
-                            <div className="title">cookie</div>
+                            <div className="title" onClick={() => { changeFlag('cookieFlag') }}>cookie</div>
                             <JsonView
                                 data={getCookieInfo()}
+                                shouldExpandNode={isExpanded.cookieFlag}
                             />
                         </div>
 
