@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Tooltip } from 'antd';
 import Draggable from 'react-draggable';
-import { OrderedListOutlined } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 import { JsonView, allExpanded, darkStyles, defaultStyles } from 'react-json-view-lite';
 import 'react-json-view-lite/dist/index.css';
 import './index.css';
@@ -101,11 +101,15 @@ export default function DragItem({ info = {} }) {
             onStop={handleStop}>
             <div className='zoom'>
                 <div className="handle">
-                    <Button onDoubleClick={showDetail} type="primary">
-                        <Tooltip title="双击可展示信息">
-                            <OrderedListOutlined />
-                        </Tooltip>
-                    </Button>
+                    {/* <Button onDoubleClick={showDetail} type="primary"> */}
+                    {/* <Tooltip title="双击可展示信息"> */}
+                    <div className="my-btn">
+                        <i className="iconfont store-tuodong my-icon" />
+                        <DownOutlined className="my-show" onClick={showDetail} />
+                    </div>
+                    {/* <OrderedListOutlined /> */}
+                    {/* </Tooltip> */}
+                    {/* </Button> */}
                     <div style={{ display: isShow ? 'flex' : 'none' }} className="infos">
                         <div className="zoom-list">
                             <div className="title" onClick={() => { changeFlag('selfFlag') }}>自定义信息</div>

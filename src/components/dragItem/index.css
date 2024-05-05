@@ -2,6 +2,37 @@
     display: block;
     position: absolute;
 
+    .my-btn {
+        background-color: rgb(101 144 159);
+        padding: 4px;
+        border-radius: 4px;
+        width: 66px;
+    }
+
+    .my-icon {
+        color: rgb(41 27 27);
+        font-size: 18px;
+        align-items: center;
+        display: inline-flex;
+        cursor: grab;
+        padding: 4px;
+        margin-right: 10px;
+    }
+
+    .my-icon:hover {
+        color: red;
+    }
+
+    .my-show {
+        cursor: pointer;
+        font-size: 18px;
+        padding: 4px;
+    }
+
+    .my-show:hover {
+        color: rgb(9, 121, 234);
+    }
+
     .handle {
         display: flex;
         justify-content: flex-start;
