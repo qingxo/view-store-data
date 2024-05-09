@@ -3,7 +3,9 @@
     npm install view-store-data
 
 # Use
-    import DragItem from 'view-store-data'
+    1、import DragItem from 'view-store-data'
+    2、url中添加?drag=true
+
 
     
 
