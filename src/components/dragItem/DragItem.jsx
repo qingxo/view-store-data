@@ -5,7 +5,10 @@ import { DownOutlined } from '@ant-design/icons';
 import { JsonView, allExpanded, darkStyles, defaultStyles } from 'react-json-view-lite';
 import 'react-json-view-lite/dist/index.css';
 import './index.css';
+const SHOW_PLUGIN_MESSAGE = 'drag=true';
 export default function DragItem({ info = {} }) {
+    console.log("the location is:", window.location);
+    const [searchInfo, setSearchInfo] = useState(window?.location?.search ?? '');
     const [isExpanded, setIsExpanded] = useState({
         selfFlag: () => true,
         storageFlag: () => false,
@@ -86,6 +89,9 @@ export default function DragItem({ info = {} }) {
     const changeFlag = (param) => {
         var obj = { ...isExpanded, [param]: () => !(isExpanded[param]()) }
         setIsExpanded(obj);
+    }
+    if (!searchInfo.includes(SHOW_PLUGIN_MESSAGE)) {
+        return '';
     }
 
     return (
